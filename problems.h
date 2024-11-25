@@ -30,7 +30,6 @@ double probability(int *A,int *B) {
 
 // Problem 5
 int presses(int *x) {
-    int apartment = *x;
     int counter = 0;
     int qoldiq = *x%10;
     int digitNumb = 0;
@@ -38,18 +37,19 @@ int presses(int *x) {
         *x = *x/10;
         digitNumb++;
     }
-    for(int i=1;i<qoldiq;i++) {
-        for(int j=1;j<=digitNumb;j++) {
-            counter++;
+    for (int d = 1; d < qoldiq; ++d) {
+        for (int length = 1; length <= 4; ++length) {
+            counter += length;
         }
     }
-    for(int j=1;j<=digitNumb;j++) {
-        counter+=j;
-        if(j == digitNumb) {
-            break;}
-        return counter;
+
+    for (int length = 1; length <= digitNumb; ++length) {
+        counter += length;
     }
+
+    return counter;
 }
+
 #endif
 
 
